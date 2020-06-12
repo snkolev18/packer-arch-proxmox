@@ -28,7 +28,7 @@
             "boot_wait": "10s",
             "boot_command": [
                 "<enter><wait10><wait10><wait10><wait10>",
-                "curl -O 'http://{{.HTTPIP}}:{{.HTTPPort}}/install{,-chroot}.sh'<enter><wait>",
+                "curl -O 'https://raw.githubusercontent.com/Themodem/packer-arch-proxmox/master/http/install{,-chroot}.sh'<enter><wait>",
                 "bash install.sh < install-chroot.sh && systemctl reboot<enter>"
             ],
             "ssh_username": "dev",
