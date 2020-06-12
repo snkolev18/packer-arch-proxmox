@@ -45,8 +45,7 @@
         {
             "type": "shell",
             "scripts": [
-                "scripts/cli_tools.sh",
-                "scripts/cli_toys.sh"
+                "scripts/cli_tools.sh"
             ]
         },
         {
