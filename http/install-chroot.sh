@@ -3,13 +3,13 @@
 set -e
 set -x
 
-ln -sf /usr/share/zoneinfo/America/Chicago /etc/localtime
+ln -sf /usr/share/zoneinfo/Europe/London /etc/localtime
 
 echo 'archlinux' > /etc/hostname
 
 sed -i -e 's/^#\(en_US.UTF-8\)/\1/' /etc/locale.gen
 locale-gen
-echo 'LANG=en_US.UTF-8' > /etc/locale.conf
+echo 'LANG=en_GB.UTF-8' > /etc/locale.conf
 
 mkinitcpio -p linux
 
