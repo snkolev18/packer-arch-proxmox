@@ -1,0 +1,13 @@
+##
+## Arch Linux repository mirrorlist
+## Generated on 2020-06-12
+##
+
+## United Kingdom
+Server = https://archlinux.uk.mirror.allworldit.com/archlinux/$repo/os/$arch
+Server = https://mirror.bytemark.co.uk/archlinux/$repo/os/$arch
+Server = https://mirrors.melbourne.co.uk/archlinux/$repo/os/$arch
+Server = https://www.mirrorservice.org/sites/ftp.archlinux.org/$repo/os/$arch
+Server = https://mirror.netweaver.uk/archlinux/$repo/os/$arch
+Server = https://lon.mirror.rackspace.com/archlinux/$repo/os/$arch
+Server = https://mirrors.ukfast.co.uk/sites/archlinux.org/$repo/os/$arch
