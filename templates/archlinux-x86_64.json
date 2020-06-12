@@ -3,11 +3,11 @@
         {
             "type": "proxmox",
             "name": "proxmox-server",
-            "proxmox_url": "https://192.168.100.183:8006/api2/json",
+            "proxmox_url": "https://192.168.0.130:8006/api2/json",
             "insecure_skip_tls_verify": true,
             "username": "root@pam",
             "password": "CHANGE_ME",
-            "node": "pxr7100",
+            "node": "smooth-server",
             "network_adapters": [
               {
                 "bridge": "vmbr0"
@@ -21,9 +21,9 @@
                 "storage_pool_type": "lvm"
               }
             ],
-            "memory": 8192,
-            "cores": 4,
-            "iso_file": "local:iso/archlinux-2019.07.01-x86_64.iso",
+            "memory": 4096,
+            "cores": 2,
+            "iso_file": "local:iso/archlinux-2020.06.01-x86_64.iso",
             "http_directory":"http",
             "boot_wait": "10s",
             "boot_command": [
