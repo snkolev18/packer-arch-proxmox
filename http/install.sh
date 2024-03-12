@@ -34,6 +34,7 @@ curl -fsS https://raw.githubusercontent.com/snkolev18/packer-arch-proxmox/master
 #done
 
 pacman-key --init
+pacman-key --refresh-keys
 
 # Install base packages, just enough for a basic system
 pacman -Sy --noconfirm
