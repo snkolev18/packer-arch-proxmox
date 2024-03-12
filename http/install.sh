@@ -39,10 +39,7 @@ pacman-key --populate
 
 # Install base packages, just enough for a basic system
 pacman -Sy --noconfirm
-pacstrap /mnt base base-devel grub openssh sudo qemu-guest-agent
+pacstrap /mnt base base-devel linux linux-firmware grub openssh sudo qemu-guest-agent
 swapon "${device}1"
 genfstab -p /mnt >> /mnt/etc/fstab
-swapoff "${device}1"
 
-arch-chroot /mnt /bin/bash
-sleep 3

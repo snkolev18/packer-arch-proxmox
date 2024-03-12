@@ -1,5 +1,7 @@
 #!/bin/bash
 
+arch-chroot /mnt /bin/bash
+
 set -e
 set -x
 
