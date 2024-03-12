@@ -49,7 +49,9 @@ source "proxmox" "proxmox-server" {
   boot_command = [
     "<enter><wait10><wait10><wait10><wait10>",
     "curl -O 'https://raw.githubusercontent.com/Themodem/packer-arch-proxmox/master/http/install{,-chroot}.sh'<enter><wait>",
-    "bash install.sh < install-chroot.sh && systemctl reboot<enter>"
+    "bash install.sh<enter>",
+    "bash install-chroot.sh<enter>",
+    "systemctl reboot<enter>"
   ]
   cd_label = "cidata"
   boot_wait    = "10s"
