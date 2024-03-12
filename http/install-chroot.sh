@@ -34,3 +34,4 @@ systemctl enable qemu-ga
 grub-install "$device"
 sed -i -e 's/^GRUB_TIMEOUT=.*$/GRUB_TIMEOUT=1/' /etc/default/grub
 grub-mkconfig -o /boot/grub/grub.cfg
+exit
