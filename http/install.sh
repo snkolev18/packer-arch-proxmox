@@ -26,7 +26,14 @@ mount "${device}2" /mnt
 
 # Get some US mirrors just to install reflector, which will rank the mirrors
 # by speed before intalling the rest of the packages
-curl -fsS https://raw.githubusercontent.com/Themodem/packer-arch-proxmox/master/http/mirrorlist > /etc/pacman.d/mirrorlist
+curl -fsS https://raw.githubusercontent.com/snkolev18/packer-arch-proxmox/master/http/mirrorlist > /etc/pacman.d/mirrorlist
+
+while ! systemctl show pacman-init.service | grep SubState=exited; do
+    systemctl --no-pager status -n0 pacman-init.service || true
+    sleep 1
+done
+
+pacman-key --init
 
 # Install base packages, just enough for a basic system
 pacman -Sy --noconfirm

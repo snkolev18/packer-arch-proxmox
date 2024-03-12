@@ -1,0 +1,4 @@
+#cloud-config
+users:
+  - name: [REDACTED]
+    passwd: [REDACTED]

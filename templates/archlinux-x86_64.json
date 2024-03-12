@@ -3,56 +3,39 @@
         {
             "type": "proxmox",
             "name": "proxmox-server",
-            "proxmox_url": "https://192.168.0.130:8006/api2/json",
-            "insecure_skip_tls_verify": true,
-            "username": "root@pam",
-            "password": "CHANGE_ME",
-            "node": "smooth-server",
+            "vm_name": "{{ user `vm_name` }}",
+            "template_description": "{{ user `vm_description` }}",
+            "proxmox_url": "{{ user `proxmox_api` }}",
+            "insecure_skip_tls_verify": "{{ user `proxmox_insecure_skip_tls_verify` }}",
+            "username": "{{ user `proxmox_username` }}",
+            "password": "{{ user `proxmox_password` }}",
+            "node": "{{ user `proxmox_node` }}",
             "network_adapters": [
               {
-                "bridge": "vmbr0"
+                "bridge": "vmbr10"
               }
             ],
             "disks": [
               {
                 "type": "scsi",
-                "disk_size": "40G",
-                "storage_pool": "local-lvm",
-                "storage_pool_type": "lvm"
+                "disk_size": "100G",
+                "storage_pool": "local-data",
+                "storage_pool_type": "lvm-thin"
               }
             ],
-            "memory": 4096,
-            "cores": 2,
-            "iso_file": "local:iso/archlinux-2020.06.01-x86_64.iso",
-            "http_directory":"http",
+            "memory": 8192,
+            "cores": 4,
+            "iso_file": "local:iso/archlinux-2024.03.01-x86_64.iso",
+            "http_directory": "http",
             "boot_wait": "10s",
             "boot_command": [
                 "<enter><wait10><wait10><wait10><wait10>",
-                "curl -O 'https://raw.githubusercontent.com/Themodem/packer-arch-proxmox/master/http/install{,-chroot}.sh'<enter><wait>",
+                "curl -O 'https://raw.githubusercontent.com/snkolev18/packer-arch-proxmox/master/http/install{,-chroot}.sh'<enter><wait>",
                 "bash install.sh < install-chroot.sh && systemctl reboot<enter>"
             ],
-            "ssh_username": "dev",
-            "ssh_password": "piranha",
-            "ssh_timeout": "15m"
-        }
-    ],
-    "provisioners": [
-        {
-            "type": "file",
-            "source": "content",
-            "destination": "/tmp"
-        },
-        {
-            "type": "shell",
-            "scripts": [
-                "scripts/cli_tools.sh"
-            ]
-        },
-        {
-            "type": "shell",
-            "scripts": [
-                "scripts/cleanup.sh"
-            ]
+            "ssh_username": "{{ user `ssh_username` }}",
+            "ssh_password": "{{ user `ssh_password` }}",
+            "ssh_timeout": "{{ user `ssh_timeout` }}"
         }
     ]
 }
