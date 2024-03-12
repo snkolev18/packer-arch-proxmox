@@ -28,10 +28,10 @@ mount "${device}2" /mnt
 # by speed before intalling the rest of the packages
 curl -fsS https://raw.githubusercontent.com/snkolev18/packer-arch-proxmox/master/http/mirrorlist > /etc/pacman.d/mirrorlist
 
-while ! systemctl show pacman-init.service | grep SubState=exited; do
-    systemctl --no-pager status -n0 pacman-init.service || true
-    sleep 1
-done
+#while ! systemctl show pacman-init.service | grep SubState=exited; do
+#    systemctl --no-pager status -n0 pacman-init.service || true
+#    sleep 1
+#done
 
 pacman-key --init
 
