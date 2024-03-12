@@ -35,7 +35,7 @@ curl -fsS https://raw.githubusercontent.com/snkolev18/packer-arch-proxmox/master
 
 pacman-key --init
 pacman-key --populate
-pacman-key --refresh-keys
+#pacman-key --refresh-keys
 
 # Install base packages, just enough for a basic system
 pacman -Sy --noconfirm
@@ -45,3 +45,4 @@ genfstab -p /mnt >> /mnt/etc/fstab
 swapoff "${device}1"
 
 arch-chroot /mnt /bin/bash
+sleep 3
