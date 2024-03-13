@@ -31,9 +31,7 @@
             "boot_command": [
                 "<enter><wait10><wait10><wait10><wait10>",
                 "curl -O 'https://raw.githubusercontent.com/snkolev18/packer-arch-proxmox/master/http/install{,-chroot}.sh'<enter><wait>",
-                "bash install.sh<enter>",
-                "bash install-chroot.sh<enter>",
-                "systemctl reboot<enter>"
+                "bash install.sh < install-chroot.sh && systemctl reboot<enter>"
             ],
             "ssh_username": "{{ user `ssh_username` }}",
             "ssh_password": "{{ user `ssh_password` }}",
