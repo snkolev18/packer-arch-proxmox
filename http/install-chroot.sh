@@ -15,13 +15,13 @@ echo 'LANG=en_US.UTF-8' > /etc/locale.conf
 mkinitcpio -P
 
 echo -e 'haha!strongpassword\nhaha!strongpassword' | passwd
-useradd -m -U dev
-echo -e 'haha!strongpassword\nhaha!strongpassword' | passwd dev
-cat <<EOF > /etc/sudoers.d/dev
-Defaults:dev !requiretty
-dev ALL=(ALL) NOPASSWD: ALL
+useradd -m -U provisioner
+echo -e 'teQKvxYCfn0yAMl\nteQKvxYCfn0yAMl' | passwd provisioner
+cat <<EOF > /etc/sudoers.d/provisioner
+Defaults:provisioner !requiretty
+provisioner ALL=(ALL) NOPASSWD: ALL
 EOF
-chmod 440 /etc/sudoers.d/dev
+chmod 440 /etc/sudoers.d/provisioner
 
 mkdir -p /etc/systemd/network
 ln -sf /dev/null /etc/systemd/network/99-default.link
