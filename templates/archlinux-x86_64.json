@@ -23,7 +23,6 @@
                 "storage_pool_type": "lvm-thin"
               }
             ],
-            "bios": "ovmf" ,
             "memory": 8192,
             "cores": 4,
             "iso_file": "local:iso/archlinux-2024.03.01-x86_64.iso",
