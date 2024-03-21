@@ -21,6 +21,7 @@ size=512MiB,                       type=EF, bootable
 size=${swap_size_in_kilobytes}KiB, type=82
                                    type=83
 EOF
+mkfs.fat "${device}1"
 mkswap "${device}2"
 mkfs.ext4 "${device}3"
 mount "${device}3" /mnt
