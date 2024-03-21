@@ -28,7 +28,7 @@ ln -sf /dev/null /etc/systemd/network/99-default.link
 
 systemctl enable sshd
 systemctl enable "dhcpcd@$(ip -o l | grep -v ' lo:' | head -n 1 | cut -d\  -f2 | cut -d: -f1)"
-systemctl enable qemu-ga
+systemctl enable qemu-guest-agent
 
 grub-install ${device} # TODO
 sed -i -e 's/^GRUB_TIMEOUT=.*$/GRUB_TIMEOUT=1/' /etc/default/grub
