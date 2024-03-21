@@ -14,9 +14,9 @@ echo 'LANG=en_US.UTF-8' > /etc/locale.conf
 
 mkinitcpio -P
 
-echo -e 'haha!strongpassword' | passwd
+echo -e 'haha!strongpassword\nhaha!strongpassword' | passwd
 useradd -m -U dev
-echo -e 'haha!strongpassword' | passwd dev
+echo -e 'haha!strongpassword\nhaha!strongpassword' | passwd dev
 cat <<EOF > /etc/sudoers.d/dev
 Defaults:dev !requiretty
 dev ALL=(ALL) NOPASSWD: ALL
@@ -30,7 +30,7 @@ systemctl enable sshd
 systemctl enable dhcpcd@eth0
 systemctl enable qemu-ga
 
-grub-install /dev/sda # TODO
+grub-install ${device} # TODO
 sed -i -e 's/^GRUB_TIMEOUT=.*$/GRUB_TIMEOUT=1/' /etc/default/grub
 grub-mkconfig -o /boot/grub/grub.cfg
 exit
