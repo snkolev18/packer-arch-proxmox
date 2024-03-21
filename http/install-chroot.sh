@@ -32,7 +32,7 @@ systemctl enable sshd
 systemctl enable dhcpcd@eth0
 systemctl enable qemu-ga
 
-grub-install "$device"
+grub-install /dev/sda # TODO
 sed -i -e 's/^GRUB_TIMEOUT=.*$/GRUB_TIMEOUT=1/' /etc/default/grub
 grub-mkconfig -o /boot/grub/grub.cfg
 exit
