@@ -6,6 +6,7 @@ set -e
 set -x
 
 ln -sf /usr/share/zoneinfo/Europe/Sofia /etc/localtime
+hwclock --systohc
 
 echo 'archlinux' > /etc/hostname
 
@@ -13,11 +14,11 @@ sed -i -e 's/^#\(en_US.UTF-8\)/\1/' /etc/locale.gen
 locale-gen
 echo 'LANG=en_US.UTF-8' > /etc/locale.conf
 
-mkinitcpio -p linux
+mkinitcpio -P
 
-echo -e 'piranha\npiranha' | passwd
+echo -e 'haha!strongpassword' | passwd
 useradd -m -U dev
-echo -e 'piranha\npiranha' | passwd dev
+echo -e 'haha!strongpassword' | passwd dev
 cat <<EOF > /etc/sudoers.d/dev
 Defaults:dev !requiretty
 dev ALL=(ALL) NOPASSWD: ALL
