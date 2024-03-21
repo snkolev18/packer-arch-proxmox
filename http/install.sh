@@ -46,3 +46,5 @@ pacstrap /mnt base base-devel linux linux-firmware grub openssh sudo qemu-guest-
 swapon "${device}2"
 genfstab -p /mnt >> /mnt/etc/fstab
 
+arch-chroot /mnt /bin/bash
+
