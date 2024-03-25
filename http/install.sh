@@ -42,7 +42,7 @@ pacman-key --populate
 
 # Install base packages, just enough for a basic system
 pacman -Sy --noconfirm
-pacstrap /mnt base base-devel linux linux-firmware grub openssh sudo qemu-guest-agent dhcpcd
+pacstrap /mnt base base-devel linux linux-firmware grub openssh sudo qemu-guest-agent dhcpcd python
 swapon "${device}2"
 genfstab -p /mnt >> /mnt/etc/fstab
 
